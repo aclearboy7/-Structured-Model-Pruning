@@ -1,0 +1,28 @@
+#finetune指令
+python main.py --refine /Lun2/great99/network-slimming/pruned_model/vgg16_0.3_pruned.pth.tar --dataset cifar10 --arch vgg --depth 16 --epochs 160
+#只要修改refine后面的path和vgg的层数即可
+
+#vgg的prune指令
+python vggprune.py --dataset cifar10 --depth 16 --percent 0.6 --model 绝对路径 --save 随便一个新文件夹
+
+#resnet的prune指令
+python resprune.py --dataset cifar10 --depth 164 --percent 0.5 --model /Lun2/great99/network-slimming/weights/res164sparsity_checkpoint.pth.tar --save save
+
+#densenet的prune指令
+python denseprune.py --dataset cifar10 --depth 40 --percent 0.1 --model /Lun2/great99/network-slimming/weights/dense40sparsity_checkpoint.pth.tar --save save
+
+#另外两个finetune一模一样的
+python main.py --refine /Lun2/great99/network-slimming/save/resnet_0.1_pruned.pth.tar --dataset cifar10 --arch resnet --depth 164 --epochs 160
+#densenet的finetune指令
+python main.py --refine /Lun2/great99/network-slimming/save/dense40_0.1pruned.pth.tar --dataset cifar10 --arch densenet --depth 40 --epochs 160
+#但很奇怪这个不对
+
+
+##CIFAR100
+#baseline的训练和稀疏化是一模一样的，注意新建个目录保存就好了
+#vgg16的sparsity training指令
+python main.py -sr --s 0.0001 --dataset cifar100 --save /Lun2/great99/network-slimming/weights --epochs 160  --arch vgg --depth 16
+#vgg的prune指令
+python vggprune.py --dataset cifar100 --depth 16 --percent 0.2 --model /Lun2/great99/network-slimming/cifar100/weights/checkpoint.pth.tar --save save_CIFAR100
+#vgg的finetune指令
+python main.py --refine /Lun2/great99/network-slimming/save_CIFAR100/vgg16_cifar100_0.2_pruned.pth.tar --dataset cifar100 --arch vgg --depth 16 --epochs 160

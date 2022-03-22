@@ -1,0 +1,21 @@
+16 : [64, 64, 'M', 128, 128, 'M', 256, 256, 256, 'M', 512, 512, 512, 'M', 512, 512, 512]
+0.1  [58, 64, 'M', 128, 128, 'M', 256, 255, 251, 'M', 454, 433, 425, 'M', 438, 473, 438]
+0.2  [53, 64, 'M', 128, 128, 'M', 255, 254, 248, 'M', 399, 352, 339, 'M', 374, 425, 360]
+0.3  [50, 64, 'M', 128, 128, 'M', 255, 253, 242, 'M', 357, 278, 248, 'M', 303, 368, 282]
+0.4  [44, 64, 'M', 128, 128, 'M', 255, 252, 238, 'M', 298, 205, 164, 'M', 243, 311, 204]
+0.5  [41, 64, 'M', 128, 128, 'M', 254, 251, 229, 'M', 251, 138, 88, 'M', 174, 256, 109]
+0.6  [40, 64, 'M', 128, 128, 'M', 254, 251, 229, 'M', 230, 115, 59, 'M', 45, 50, 96]
+0.68 [33, 62, 'M', 125, 124, 'M', 235, 234, 201, 'M', 161, 55, 26, 'M', 20, 22, 53]
+
+
+model               test acc        model dir
+0.1 pruned          93.52%          network-slimming/pruned model/vgg16_0.1_pruned.pth.tar
+0.2 pruned          93.53%          network-slimming/pruned model/vgg16_0.2_pruned.pth.tar
+0.3 pruned          93.53%          network-slimming/pruned model/vgg16_0.3_pruned.pth.tar
+0.4 pruned          93.53%          network-slimming/pruned model/vgg16_0.4_pruned.pth.tar
+0.5 pruned          93.52%          network-slimming/pruned model/vgg16_0.5_pruned.pth.tar
+0.6 pruned          90.83%          network-slimming/pruned model/vgg16_0.6_pruned.pth.tar
+0.7 pruned          -
+0.8 pruned          -
+
+0.6_0.2 pruned      93.95%(finetuned best)   network-slimming/weights/vgg16_finetune2_best.pth.tar
